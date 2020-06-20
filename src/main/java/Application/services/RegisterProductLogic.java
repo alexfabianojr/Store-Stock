@@ -9,16 +9,18 @@ import java.text.MessageFormat;
 
 public class RegisterProductLogic {
 
-    public static void registerProductJSONDataBaseWriteLogic(int code, String name, String type, Double weight, Double dimension, int quantity) {
+    public static void registerProductJSONDataBaseWriteLogic(int code, String name, String type, Double weight,
+                                                             Double dimension, Double price, int quantity) {
         try {
-
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("C:\\StockDataBase\\stockdatabase.txt", true));
             JSONObject jsonObject = new JSONObject();
 
-            jsonObject.put("name", name.toString());
-            jsonObject.put("type", type.toString());
+            jsonObject.put("code", code);
+            jsonObject.put("name", name);
+            jsonObject.put("type", type);
             jsonObject.put("weight", weight);
             jsonObject.put("dimension", dimension);
+            jsonObject.put("price", price);
             jsonObject.put("quantity", quantity);
 
             bufferedWriter.append("DATA_CODE" + jsonObject.toString() + System.lineSeparator());
