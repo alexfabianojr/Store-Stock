@@ -38,7 +38,6 @@ public class RegisterProductPanel {
             System.out.println("Quantity: ");
             quantity = sc.nextInt();
 
-            System.out.println("test: "+ name + " " + type);
             registerProductJSONDataBaseWriteLogic(code, name, type, weight, dimension, price, quantity);
         }
         catch (Exception e) {

@@ -29,7 +29,7 @@ public class CentralPanel {
                     case 0 -> {
                         System.exit(1);
                     }
-                    case 1 -> {
+                    case 1 -> { /*OK*/
                         registerProductPanel();
                     }
                     case 2 -> {
