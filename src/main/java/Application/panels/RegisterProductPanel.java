@@ -13,7 +13,6 @@ public class RegisterProductPanel {
 
             Scanner sc = new Scanner(System.in);
 
-            int code; /*change code to get file next code number and take out this user decision*/
             String name;
             String type;
             Double weight;
@@ -22,9 +21,6 @@ public class RegisterProductPanel {
             int quantity;
 
             System.out.println("...Register Product Painel");
-            System.out.println("Code: ");
-            code = sc.nextInt();
-            sc.nextLine();
             System.out.println("Name: ");
             name = sc.nextLine();
             System.out.println("Type: ");
@@ -38,7 +34,7 @@ public class RegisterProductPanel {
             System.out.println("Quantity: ");
             quantity = sc.nextInt();
 
-            registerProductJSONDataBaseWriteLogic(code, name, type, weight, dimension, price, quantity);
+            registerProductJSONDataBaseWriteLogic(name, type, weight, dimension, price, quantity);
         }
         catch (Exception e) {
             System.out.printf(MessageFormat.format("Error: {0}", e + "\n...try again"));
