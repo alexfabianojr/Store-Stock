@@ -3,21 +3,26 @@ package Application.services;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 
-import static Application.services.PrimaryKeyNumberByLineNumberCountLogic.primaryKeyNumberByLineNumberCountLogic;
+public class RewriteLogic {
 
-
-public class RegisterProductLogic {
-
-    public static void registerProductJSONDataBaseWriteLogic(String name, String type, Double weight,
-                                                             Double dimension, Double price, int quantity) {
+    public static void rewriteLogic(int primaryKey, String name, String type,
+                                    Double weight, Double dimension, Double price, int quantity) {
         try {
-            BufferedWriter bufferedWriter =
-                    new BufferedWriter(new FileWriter("C:\\StockDataBase\\stockdatabase.txt", true));
+            BufferedWriter bufferedWriter;
+            BufferedReader bufferedReader =
+                    new BufferedReader(new FileReader("C:\\StockDataBase\\stockdatabase.txt"));
             JSONObject jsonObject = new JSONObject();
-            int primaryKey = primaryKeyNumberByLineNumberCountLogic();
+
+            List<String> listJSON = (Files.readAllLines(Paths.get("C:\\StockDataBase\\stockdatabase.txt")));
+
+            bufferedReader.close();
 
             jsonObject.put("primary-key", primaryKey);
             jsonObject.put("name", name);
@@ -27,11 +32,15 @@ public class RegisterProductLogic {
             jsonObject.put("price", price);
             jsonObject.put("quantity", quantity);
 
-            bufferedWriter.append(jsonObject.toString() + System.lineSeparator());
-            bufferedWriter.close();
+            listJSON.set((primaryKey - 1), jsonObject.toString());
 
-            System.out.println(jsonObject.toString());
-            System.out.println("Product Registered!");
+            bufferedWriter = new BufferedWriter(new FileWriter("C:\\StockDataBase\\stockdatabase.txt", false));
+
+            for (int i = 0; i < listJSON.size(); i++) {
+                bufferedWriter.append(listJSON.get(i) + System.lineSeparator());
+            }
+
+            bufferedWriter.close();
         }
 
         catch (IllegalStateException exception) {

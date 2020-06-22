@@ -10,11 +10,11 @@ import static Application.panels.RemoveProductPanel.removeProductPanel;
 import static Application.services.StockReportLogic.runningStockReportLogic;
 
 public class CentralPanel {
+
     public static void centralPanel() {
         try {
             Scanner sc = new Scanner(System.in);
             int switchChooseVariable;
-
             while (true) {
                 System.out.println("\nChoose the service to run..." +
                         "\n1 - Register Product" +
@@ -24,7 +24,6 @@ public class CentralPanel {
                         "\n5 - Stock Report" +
                         "\n0 - Exit Program");
                 switchChooseVariable = sc.nextInt();
-
                 switch (switchChooseVariable) {
                     case 0 -> {
                         System.exit(1);
@@ -41,7 +40,7 @@ public class CentralPanel {
                     case 4 -> {
                         checkProductPanel();
                     }
-                    case 5 -> {
+                    case 5 -> { /*OK*/
                         runningStockReportLogic();
                     }
                     default -> throw new IllegalStateException("Unexpected value: " + switchChooseVariable + "\n...Try again");
@@ -51,4 +50,5 @@ public class CentralPanel {
             System.out.printf(MessageFormat.format("Error: {0}", e));
         }
     }
+
 }

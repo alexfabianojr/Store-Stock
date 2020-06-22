@@ -6,17 +6,13 @@ import java.text.MessageFormat;
 
 public class FolderAndFileStarterCheckLogic {
 
-    /*?build automatic the 1st line?*/
-
     public static void runningFolderAndFileStarterCheckLogic() {
-
         File dataFolder = new File("C:\\StockDataBase");
         File dataFile = new File("C:\\StockDataBase\\stockdatabase.txt");
         boolean folderFlag = dataFolder.exists();
         boolean fileFlag;
         String fileCheck;
         String folderCheck;
-
         try {
             dataFolder.mkdirs();
             folderCheck = (folderFlag) ? "\nDataBase folder already exists" : "\nNew dataBase folder created";

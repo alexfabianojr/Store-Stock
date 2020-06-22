@@ -4,9 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
-public class IndexNumberLogic {
+public class PrimaryKeyNumberByLineNumberCountLogic {
 
-    public static int indexNumberByLineNumberCountLogic() throws IOException {
+    public static int primaryKeyNumberByLineNumberCountLogic() throws IOException {
         try (LineNumberReader reader = new LineNumberReader(new FileReader("C:\\StockDataBase\\stockdatabase.txt"))) {
             reader.skip(Integer.MAX_VALUE);
             int numberOfLines = reader.getLineNumber() + 1;
