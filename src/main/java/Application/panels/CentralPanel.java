@@ -3,7 +3,7 @@ package Application.panels;
 import java.text.MessageFormat;
 import java.util.Scanner;
 
-import static Application.panels.AddProductPanel.addProductPanel;
+import static Application.panels.AddProductQuantityPanel.addProductQuantityPanel;
 import static Application.panels.CheckProductPanel.checkProductPanel;
 import static Application.panels.RegisterProductPanel.registerProductPanel;
 import static Application.panels.RemoveProductPanel.removeProductPanel;
@@ -35,7 +35,7 @@ public class CentralPanel {
                         removeProductPanel();
                     }
                     case 3 -> {
-                        addProductPanel();
+                        addProductQuantityPanel();
                     }
                     case 4 -> {
                         checkProductPanel();

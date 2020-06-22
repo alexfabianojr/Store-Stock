@@ -1,15 +1,14 @@
 package Application.panels;
 
-import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static Application.services.RemoveProductLogic.removeProductLogic;
+import static Application.services.AddProductQuantityLogic.addProductQuantityWriteLogic;
 
-public class RemoveProductPanel {
+public class AddProductQuantityPanel {
 
-    public static void removeProductPanel() {
+    public static void addProductQuantityPanel() {
         try {
             Scanner sc = new Scanner(System.in);
 
@@ -18,9 +17,9 @@ public class RemoveProductPanel {
 
             System.out.println("Insert product primary-key: ");
             primaryKey = sc.nextInt();
-            System.out.println("Quantity of product to be remove: ");
+            System.out.println("Quantity of product to be added: ");
             quantity = sc.nextInt();
-            removeProductLogic(primaryKey, quantity);
+            addProductQuantityWriteLogic(primaryKey, quantity);
         }
 
         catch (IllegalStateException exception) {
