@@ -28,7 +28,7 @@ public class CentralPanel {
                     case 0 -> {
                         System.exit(1);
                     }
-                    case 1 -> { /*OK*/
+                    case 1 -> {
                         registerProductPanel();
                     }
                     case 2 -> {
@@ -40,7 +40,7 @@ public class CentralPanel {
                     case 4 -> {
                         checkProductPanel();
                     }
-                    case 5 -> { /*OK*/
+                    case 5 -> {
                         runningStockReportLogic();
                     }
                     default -> throw new IllegalStateException("Unexpected value: " + switchChooseVariable + "\n...Try again");
